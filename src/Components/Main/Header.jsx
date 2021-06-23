@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { Link } from "react-router-dom";
 import {
   Nav,
   Navbar,
@@ -23,9 +24,9 @@ export const Header = ({ getSearch }) => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
           <Nav className="mr-auto">
-            <Nav.Link href="/historic">
+            <Link to="/historic">
               <div className="btn btn-primary">Historic</div>
-            </Nav.Link>
+            </Link>
           </Nav>
           <Form inline>
             <FormControl

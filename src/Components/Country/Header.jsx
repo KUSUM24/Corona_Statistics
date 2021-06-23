@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   Nav,
   Navbar,
@@ -20,12 +21,12 @@ export const Header = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
           <Nav className="mr-auto">
-            <Nav.Link href="/">
-              <div className="btn btn-primary">Home</div>
-            </Nav.Link>
-            <Nav.Link href="/historic">
-              <div className="btn btn-primary">Historic</div>
-            </Nav.Link>
+            <Link to="/Corona_Statistics">
+              <div className="btn btn-primary m-2">Home</div>
+            </Link>
+            <Link to="/historic">
+              <div className="btn btn-primary m-2">Historic</div>
+            </Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

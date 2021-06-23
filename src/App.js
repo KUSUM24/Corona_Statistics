@@ -103,18 +103,6 @@ export const App = () => {
         <Router>
           <Switch>
             <Route
-              path="/historic"
-              render={(props) => (
-                <Historic
-                  historicData={historicData}
-                  historicWorld={historicWorld}
-                  dateList={dateList}
-                  getSearch={handleHistoricSearch}
-                  {...props}
-                />
-              )}
-            />
-            <Route
               exact
               path="/"
               render={(props) => (
@@ -130,7 +118,36 @@ export const App = () => {
               )}
             />
             <Route
+              path="/Corona_Statistics"
+              exact
+              render={(props) => (
+                <Main
+                  countryList={countryList}
+                  worldData={worldData}
+                  getSearch={handleSearch}
+                  sortStatus={handleSort}
+                  sortValue={sortValue}
+                  getCountryName={handleCountry}
+                  {...props}
+                />
+              )}
+            />
+            <Route
+              path="/historic"
+              exact
+              render={(props) => (
+                <Historic
+                  historicData={historicData}
+                  historicWorld={historicWorld}
+                  dateList={dateList}
+                  getSearch={handleHistoricSearch}
+                  {...props}
+                />
+              )}
+            />
+            <Route
               path={`/${countryName}`}
+              exact
               render={(props) => (
                 <Country oneCountryData={oneCountryData} {...props} />
               )}
