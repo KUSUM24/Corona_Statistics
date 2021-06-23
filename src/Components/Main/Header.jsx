@@ -14,7 +14,10 @@ export const Header = ({ getSearch }) => {
       <Navbar
         bg="light"
         expand="lg"
-        style={{ boxShadow: "0px 0px 10px 5px gray" }}
+        style={{
+          boxShadow: "0px 0px 10px 5px gray",
+          marginTop: "0.5%",
+        }}
       >
         <Navbar.Brand href="/">Corona Live Statistics</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

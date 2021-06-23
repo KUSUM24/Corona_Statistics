@@ -10,7 +10,9 @@ export const App = () => {
   const [data, setData] = useState([]);
   const [worldData, setWorldData] = useState({});
   const [historicData, setHistoricData] = useState({});
+  const [historicList, setHistoricList] = useState({});
   const [historicWorld, setHistoricWorld] = useState({});
+  const [dateList, setDateList] = useState([]);
 
   useEffect(() => {
     setLoading(true);
@@ -30,8 +32,8 @@ export const App = () => {
         method: "GET",
       });
       let jsonHistoric = await resHistoric.json();
-
       setHistoricData(jsonHistoric);
+      setHistoricList(jsonHistoric);
       console.log(jsonHistoric);
       let resHistoricWorld = await fetch(
         "https://corona.lmao.ninja/v2/historical/all",
@@ -40,6 +42,8 @@ export const App = () => {
         }
       );
       let jsonHistoricWorld = await resHistoricWorld.json();
+      let dateArray = Object.keys(jsonHistoricWorld.cases);
+      setDateList(dateArray.reverse());
       setHistoricWorld(jsonHistoricWorld);
       setLoading(false);
     };
@@ -50,6 +54,12 @@ export const App = () => {
     let countryListNew = data.filter((c) => c.country.match(reg));
     setCountryList(countryListNew);
   };
+  const handleHistoricSearch = (searchText) => {
+    let reg = new RegExp(searchText, "i");
+    let newHistoric = historicList.filter((c) => c.country.match(reg));
+    setHistoricData(newHistoric);
+  };
+
   return (
     <>
       {loading ? (
@@ -65,7 +75,8 @@ export const App = () => {
                 <Historic
                   historicData={historicData}
                   historicWorld={historicWorld}
-                  getSearch={handleSearch}
+                  dateList={dateList}
+                  getSearch={handleHistoricSearch}
                   {...props}
                 />
               )}
