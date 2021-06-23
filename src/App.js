@@ -3,6 +3,7 @@ import { Loader } from "./Common/Loader";
 import { Main } from "./Components/Main";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Historic } from "./Components/Historic";
+import { Country } from "./Components/Country";
 
 export const App = () => {
   const [loading, setLoading] = useState(true);
@@ -13,6 +14,9 @@ export const App = () => {
   const [historicList, setHistoricList] = useState({});
   const [historicWorld, setHistoricWorld] = useState({});
   const [dateList, setDateList] = useState([]);
+  const [sortValue, setSortValue] = useState("active");
+  const [oneCountryData, setOneCountryData] = useState({});
+  const [countryName, setCountryName] = useState("");
 
   useEffect(() => {
     setLoading(true);
@@ -21,7 +25,7 @@ export const App = () => {
         method: "GET",
       });
       let json = await res.json();
-      setCountryList(json);
+      setCountryList(json.sort((a, b) => b.active - a.active));
       setData(json);
       let resWorld = await fetch("https://corona.lmao.ninja/v2/all", {
         method: "GET",
@@ -59,7 +63,36 @@ export const App = () => {
     let newHistoric = historicList.filter((c) => c.country.match(reg));
     setHistoricData(newHistoric);
   };
-
+  const handleSort = (sortStatus) => {
+    let countryListNew;
+    if (sortStatus == "countryName") {
+      countryListNew = data.sort((a, b) => (a.country > b.country ? 1 : -1));
+    } else if (sortStatus == "newCases") {
+      countryListNew = data.sort((a, b) => b.todayCases - a.todayCases);
+    } else if (sortStatus == "total") {
+      countryListNew = data.sort((a, b) => b.cases - a.cases);
+    } else if (sortStatus == "active") {
+      countryListNew = data.sort((a, b) => b.active - a.active);
+    } else if (sortStatus == "recovered") {
+      countryListNew = data.sort((a, b) => b.recovered - a.recovered);
+    } else if (sortStatus == "deaths") {
+      countryListNew = data.sort((a, b) => b.deaths - a.deaths);
+    } else if (sortStatus == "tests") {
+      countryListNew = data.sort((a, b) => b.tests - a.tests);
+    }
+    console.log(countryListNew);
+    setCountryList([...countryListNew]);
+    setSortValue(sortStatus);
+  };
+  const handleCountry = (countryName) => {
+    setCountryName(countryName);
+    data.map((item) => {
+      if (item.country == countryName) {
+        setOneCountryData(item);
+      }
+    });
+  };
+  console.log(countryName);
   return (
     <>
       {loading ? (
@@ -82,14 +115,24 @@ export const App = () => {
               )}
             />
             <Route
+              exact
               path="/"
               render={(props) => (
                 <Main
                   countryList={countryList}
                   worldData={worldData}
                   getSearch={handleSearch}
+                  sortStatus={handleSort}
+                  sortValue={sortValue}
+                  getCountryName={handleCountry}
                   {...props}
                 />
+              )}
+            />
+            <Route
+              path={`/${countryName}`}
+              render={(props) => (
+                <Country oneCountryData={oneCountryData} {...props} />
               )}
             />
           </Switch>

@@ -23,7 +23,7 @@ export const Header = ({ getSearch }) => {
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
           <Nav className="mr-auto">
             <Nav.Link href="/">
-              <div className="btn btn-success">Home</div>
+              <div className="btn btn-primary">Home</div>
             </Nav.Link>
           </Nav>
           <Form inline>
@@ -31,7 +31,7 @@ export const Header = ({ getSearch }) => {
               type="text"
               ref={searchRef}
               onChange={() => getSearch(searchRef.current.value)}
-              placeholder="Search"
+              placeholder="Search Country"
               className="mr-sm-2"
             />
           </Form>
