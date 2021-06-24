@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import { Dropdown, DropdownButton, Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
-export const HistoricTable = ({ historicData, historicWorld, dateList }) => {
+export const HistoricTable = ({
+  historicData,
+  historicWorld,
+  dateList,
+  getCountryName,
+}) => {
   const [currentDate, setCurrentDate] = useState(dateList[0]);
   const handleCurrentdate = (date) => {
     setCurrentDate(date);
@@ -13,7 +19,20 @@ export const HistoricTable = ({ historicData, historicWorld, dateList }) => {
       <>
         <tr>
           <td>{index + 2}</td>
-          <td>{data.country}</td>
+          <td onClick={() => getCountryName(data.country)}>
+            <Link
+              to={`/${data.country}`}
+              style={{
+                cursor: "pointer",
+                color: "black",
+                border: "1px solid transparent",
+                borderColor: "transparent",
+                width: "100% !important",
+              }}
+            >
+              {data.country}
+            </Link>
+          </td>
           <td>{data.timeline.cases[currentDate].toLocaleString()}</td>
           <td>{data.timeline.recovered[currentDate].toLocaleString()}</td>
           <td>{data.timeline.deaths[currentDate].toLocaleString()}</td>

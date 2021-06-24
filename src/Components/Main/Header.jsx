@@ -25,7 +25,7 @@ export const Header = ({ getSearch }) => {
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
           <Nav className="mr-auto">
             <Link to="/historic">
-              <div className="btn btn-primary">Historic</div>
+              <div className="btn btn-primary mb-2">Historic</div>
             </Link>
           </Nav>
           <Form inline>

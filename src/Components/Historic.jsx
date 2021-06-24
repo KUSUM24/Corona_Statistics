@@ -7,6 +7,7 @@ export const Historic = ({
   historicWorld,
   getSearch,
   dateList,
+  getCountryName,
 }) => {
   return (
     <>
@@ -15,6 +16,7 @@ export const Historic = ({
         historicData={historicData}
         historicWorld={historicWorld}
         dateList={dateList}
+        getCountryName={getCountryName}
       />
     </>
   );

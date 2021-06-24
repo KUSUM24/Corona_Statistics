@@ -141,6 +141,7 @@ export const App = () => {
                   historicWorld={historicWorld}
                   dateList={dateList}
                   getSearch={handleHistoricSearch}
+                  getCountryName={handleCountry}
                   {...props}
                 />
               )}

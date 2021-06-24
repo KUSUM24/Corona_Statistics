@@ -101,7 +101,7 @@ export const MainTable = ({
                       color: "black",
                       border: "1px solid transparent",
                       borderColor: "transparent",
-                      width: "100%",
+                      width: "100% !important",
                     }}
                   >
                     {item.country}

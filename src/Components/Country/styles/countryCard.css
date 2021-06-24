@@ -5,7 +5,14 @@
 .card {
   margin-top: 15%;
 }
-
+.row {
+  margin: 0px !important;
+}
+.important-detail {
+  color: white;
+  /* background-color: red; */
+  border: 1px solid black;
+}
 @media screen and (max-width: 1000px) {
   .col {
     min-width: 50%;

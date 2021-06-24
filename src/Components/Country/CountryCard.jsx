@@ -6,14 +6,14 @@ export const CountryCard = ({ oneCountryData }) => {
   return (
     <div>
       <Row>
-        <Col className="m-4">
+        <Col className="m-4 text-center">
           <Card>
             <Card.Header className="d-flex justify-content-between">
               {oneCountryData.country}
               <div>Till Date</div>
             </Card.Header>
             <Card.Body>
-              <div>
+              <div className="important-detail bg-danger text-center">
                 Active Cases: <b>{oneCountryData.active.toLocaleString()}</b>
               </div>
               <div>
@@ -32,13 +32,13 @@ export const CountryCard = ({ oneCountryData }) => {
             </Card.Body>
           </Card>
         </Col>
-        <Col className="m-4">
+        <Col className="m-4 text-center">
           <Card>
             <Card.Header className="d-flex justify-content-between">
               {oneCountryData.country} <div>Today</div>{" "}
             </Card.Header>
             <Card.Body>
-              <div>
+              <div className="important-detail bg-danger">
                 New Cases: <b>{oneCountryData.todayCases.toLocaleString()}</b>
               </div>
               <div>
@@ -60,13 +60,13 @@ export const CountryCard = ({ oneCountryData }) => {
             </Card.Body>
           </Card>
         </Col>
-        <Col className="m-4">
+        <Col className="m-4 text-center">
           <Card>
             <Card.Header className="d-flex justify-content-between">
               {oneCountryData.country} <div>Per Million</div>
             </Card.Header>
             <Card.Body>
-              <div>
+              <div className="important-detail bg-danger ">
                 Active Per Million:{" "}
                 <b>{oneCountryData.activePerOneMillion.toLocaleString()}</b>
               </div>
