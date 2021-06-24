@@ -8,6 +8,7 @@ import {
   FormControl,
   Button,
 } from "react-bootstrap";
+import "../../Common/styles/header.css";
 
 export const Header = ({ getSearch }) => {
   let searchRef = useRef();
@@ -23,8 +24,8 @@ export const Header = ({ getSearch }) => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
           <Nav className="mr-auto">
-            <Link to="/Corona_Statistics" className="mb-2">
-              <div className="btn btn-primary">Home</div>
+            <Link to="/Corona_Statistics">
+              <div className="header-button btn btn-primary">Home</div>
             </Link>
           </Nav>
           <Form inline>

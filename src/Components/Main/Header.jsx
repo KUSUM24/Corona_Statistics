@@ -8,6 +8,8 @@ import {
   FormControl,
   Button,
 } from "react-bootstrap";
+import "../../Common/styles/header.css";
+
 export const Header = ({ getSearch }) => {
   let searchRef = useRef();
   return (
@@ -25,7 +27,7 @@ export const Header = ({ getSearch }) => {
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
           <Nav className="mr-auto">
             <Link to="/historic">
-              <div className="btn btn-primary mb-2">Historic</div>
+              <div className="header-button btn btn-primary ">Historic</div>
             </Link>
           </Nav>
           <Form inline>

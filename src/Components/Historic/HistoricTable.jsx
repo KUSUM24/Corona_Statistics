@@ -50,6 +50,7 @@ export const HistoricTable = ({
           variant="dark"
           id="dropdown-basic-button"
           title={currentDate}
+          // style={{ height: "200px", overflowY: "scroll" }}
         >
           {dateList.map((date, index) => {
             return (
