@@ -20,7 +20,7 @@ export const MainTable = ({
               onClick={() => sortStatus("countryName")}
               style={{ cursor: "pointer" }}
             >
-              <div className="d-flex justify-content-between">
+              <div className="d-flex justify-content-between align-items-center">
                 Country Name
                 {sortValue == "countryName" && <ImportExportIcon />}
               </div>
@@ -29,7 +29,7 @@ export const MainTable = ({
               onClick={() => sortStatus("newCases")}
               style={{ cursor: "pointer" }}
             >
-              <div className="d-flex justify-content-between">
+              <div className="d-flex justify-content-between align-items-center">
                 New Cases
                 {sortValue == "newCases" && <ImportExportIcon />}
               </div>
@@ -38,7 +38,7 @@ export const MainTable = ({
               onClick={() => sortStatus("active")}
               style={{ cursor: "pointer" }}
             >
-              <div className="d-flex justify-content-between">
+              <div className="d-flex justify-content-between align-items-center">
                 Active Cases {sortValue == "active" && <ImportExportIcon />}
               </div>
             </th>
@@ -46,7 +46,7 @@ export const MainTable = ({
               onClick={() => sortStatus("total")}
               style={{ cursor: "pointer" }}
             >
-              <div className="d-flex justify-content-between">
+              <div className="d-flex justify-content-between align-items-center">
                 Total Cases {sortValue == "total" && <ImportExportIcon />}
               </div>
             </th>
@@ -55,7 +55,7 @@ export const MainTable = ({
               onClick={() => sortStatus("recovered")}
               style={{ cursor: "pointer" }}
             >
-              <div className="d-flex justify-content-between">
+              <div className="d-flex justify-content-between align-items-center">
                 Recovered Cases{" "}
                 {sortValue == "recovered" && <ImportExportIcon />}
               </div>
@@ -64,7 +64,7 @@ export const MainTable = ({
               onClick={() => sortStatus("deaths")}
               style={{ cursor: "pointer" }}
             >
-              <div className="d-flex justify-content-between">
+              <div className="d-flex justify-content-between align-items-center">
                 Deaths {sortValue == "deaths" && <ImportExportIcon />}
               </div>
             </th>
@@ -72,7 +72,7 @@ export const MainTable = ({
               onClick={() => sortStatus("tests")}
               style={{ cursor: "pointer" }}
             >
-              <div className="d-flex justify-content-between">
+              <div className="d-flex justify-content-between align-items-center">
                 Total Tests {sortValue == "tests" && <ImportExportIcon />}
               </div>
             </th>
